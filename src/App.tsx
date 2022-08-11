@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, {ReactNode} from "react";
 import "./App.less";
 import {
   attNameToZhStr,
@@ -10,7 +10,8 @@ import {
   getScoreOfAllCharacterBuild,
 } from "./utils/ArtifactUtils";
 
-class Props {}
+class Props {
+}
 
 class State {
   artifactInfo: TArtifactAttribute;
@@ -26,7 +27,7 @@ export class App extends React.Component<Props, State> {
   }
 
   render(): ReactNode {
-    let { artifactInfo } = this.state;
+    let {artifactInfo} = this.state;
     const infoList = Object.keys(artifactInfo).map((key) => (
       <div key={key} className={"InfoInputItem"}>
         <div className={"InfoInputItemName"}>{attNameToZhStr(key)}:</div>
@@ -57,7 +58,7 @@ export class App extends React.Component<Props, State> {
             {buildInfo.characterName} - {buildInfo.buildName} -{" "}
             {buildInfo.buildElement}
           </div>
-          <div>{score.sumInPercentage.toFixed(2)}</div>
+          <div>{score.sumInPercentage.toFixed(2)}%</div>
         </div>
       ));
 
@@ -66,7 +67,7 @@ export class App extends React.Component<Props, State> {
         <div className={"AppContent"}>
           <div className={"InfoInput"}>{infoList}</div>
           <div className={"Score"}>
-            成长分: {score.sumInPercentage.toFixed(2)}
+            成长: {score.sumInPercentage.toFixed(2)}%
           </div>
           <div className={"CharacterBuilds"}>{characterBuilds}</div>
         </div>
